@@ -1,0 +1,239 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eeeeee;
+}
+
+.sivurakenne {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    grid-template-areas:
+        "navigaatio otsikko otsikko"
+        "navigaatio kortit kortit"
+        "navigaatio mainos1 mainos2";
+    gap: 15px;
+    padding: 15px;
+}
+
+/* Navigaatio */
+
+.navigaatio {
+    grid-area: navigaatio;
+    background-color: #222;
+    color: white;
+    padding: 20px;
+}
+
+.navigaatio h2 {
+    margin-bottom: 25px;
+}
+
+.navigaatio a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 5px;
+    font-size: 17px;
+}
+
+.navigaatio a:hover {
+    background-color: #555;
+}
+
+.navigaatio i {
+    width: 25px;
+}
+
+/* Otsikko */
+
+.otsikko {
+    grid-area: otsikko;
+    min-height: 220px;
+    background-image: url("https://picsum.photos/id/1018/1200/400");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.otsikkoteksti {
+    background-color: rgba(0,0,0,0.55);
+    padding: 25px;
+}
+
+/* Kortit */
+
+.kortit {
+    grid-area: kortit;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.kortit section {
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px #ccc;
+}
+
+.korttikuva {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+
+.kortit h3 {
+    margin: 10px 0;
+}
+
+.kortit p {
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+/* Mainokset */
+
+.mainos1 {
+    grid-area: mainos1;
+}
+
+.mainos2 {
+    grid-area: mainos2;
+}
+
+.mainos1, .mainos2 {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+}
+
+.mainos1 img, .mainos2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mainosteksti {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0.65);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    width: 80%;
+}
+
+/* TABLETTI */
+
+@media (max-width: 900px) {
+
+    .sivurakenne {
+        grid-template-columns: 150px 1fr;
+        grid-template-areas:
+            "navigaatio otsikko"
+            "navigaatio kortit"
+            "navigaatio mainos1"
+            "navigaatio mainos2";
+    }
+
+    .kortit {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* MOBIILI */
+
+@media (max-width: 600px) {
+
+    .sivurakenne {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "navigaatio"
+            "otsikko"
+            "kortit"
+            "mainos1"
+            "mainos2";
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .navigaatio {
+        padding: 8px;
+    }
+
+    .navigaatio h2 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .navigaatio a {
+        display: inline-block;
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+
+    .navigaatio i {
+        width: auto;
+    }
+
+    .otsikko {
+        min-height: 150px;
+    }
+
+    .otsikkoteksti {
+        padding: 12px;
+    }
+
+    .otsikkoteksti h1 {
+        font-size: 21px;
+    }
+
+    .kortit {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .kortit section {
+        padding: 8px;
+    }
+
+    .korttikuva {
+        height: 180px;
+    }
+
+    .mainos1, .mainos2 {
+        height: 130px;
+    }
+
+    .mainosteksti {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+/* Kuvien ja sisältöjen hallinta */
+.sivurakenne {
+    min-width: 0;
+}
+
+.kortit {
+    min-width: 0;
+}
+
+.kortit section {
+    min-width: 0;
+}
